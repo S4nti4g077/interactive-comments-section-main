@@ -1,16 +1,22 @@
-const commentQuantity = async () => {
-  const res = await axios.get("/data.json");
-  const size = Object.keys(res.data.comments).length;
-  console.log(size - 1);
-  const length = size - 1;
-  return length.toString();
-};
+// const commentQuantity = async () => {
+//   const res = await axios.get("/data.json");
+//   const size = Object.keys(res.data.comments);
+//   console.log(size.length);
+//   const dlugosc = size.length - 1;
+//   console.log(dlugosc);
+//   return dlugosc;
+// };
 
-const commentData = async (id) => {
+const commentData = async () => {
   const res = await axios.get("/data.json");
-  const size = commentQuantity();
-  console.log(res.data.comments[`${id}`].content);
-  return res.data;
+  const size = Object.keys(res.data.comments);
+  const dlugosc = size.length;
+  for (let cytat of dlugosc) {
+    console.log(res.data.comments[`${cytat}`].content);
+  }
+
+  //   console.log(JSON.parse(data));
+  //   return res.data.id - 1;
 };
 
 // const showComment = async (commentData) => {
